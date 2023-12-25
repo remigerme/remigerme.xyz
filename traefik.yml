@@ -1,0 +1,21 @@
+providers:
+  docker: {}
+
+entryPoints:
+  http:
+    address: ":80"
+    http:
+      redirections:
+        entryPoint:
+          to: https
+          scheme: https
+  https:
+    address: ":443"
+
+acme:
+  email: "nowebmaster@remigerme.xyz"
+  storage: "acme.json"
+  entryPoint: "https"
+  onHostRule: true
+  httpChallenge:
+    entryPoint: "http"
