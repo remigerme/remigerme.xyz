@@ -11,7 +11,7 @@ volumes:
 
 services:
   mariadb:
-    image: yobasystems/alpine-mariadb:10.6:arm32v7
+    image: yobasystems/alpine-mariadb:10.6
     container_name: nextcloud-mariadb
     restart: unless-stopped
     volumes:
