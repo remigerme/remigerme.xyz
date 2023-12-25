@@ -25,7 +25,7 @@ services:
       - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
 
   redis:
-    image: redis:7.2
+    image: arm32v7/redis:7
     container_name: nextcloud-redis
     restart: unless-stopped
     volumes:
