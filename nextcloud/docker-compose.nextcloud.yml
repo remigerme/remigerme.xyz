@@ -6,7 +6,7 @@ networks:
 
 volumes:
   mariadb-data-nextcloud:
-  redis-data-nextcloud:
+#  redis-data-nextcloud:
   nextcloud:
 
 services:
@@ -24,15 +24,15 @@ services:
       - "MYSQL_USER=${MYSQL_USER}"
       - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
 
-  redis:
-    image: redis:7.2
-    container_name: nextcloud-redis
-    restart: unless-stopped
-    volumes:
-      - redis-data-nextcloud:/data
-    networks:
-      - web
-    command: redis-server --requirepass ${REDIS_PASSWORD}
+#  redis:
+#    image: redis:7.2
+#    container_name: nextcloud-redis
+#    restart: unless-stopped
+#    volumes:
+#      - redis-data-nextcloud:/data
+#    networks:
+#      - web
+#    command: redis-server --requirepass ${REDIS_PASSWORD}
 
   nextcloud:
     image: nextcloud:26
@@ -40,10 +40,10 @@ services:
     restart: unless-stopped
     depends_on:
       - mariadb
-      - redis
+#      - redis
     links:
       - mariadb
-      - redis
+#      - redis
     volumes:
       - nextcloud:/var/www/html
     networks:
@@ -56,8 +56,8 @@ services:
       - "MYSQL_HOST=mariadb"
       - "NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER}"
       - "NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}"
-      - "REDIS_HOST=redis"
-      - "REDIS_HOST_PASSWORD=${REDIS_PASSWORD}"
+#      - "REDIS_HOST=redis"
+#      - "REDIS_HOST_PASSWORD=${REDIS_PASSWORD}"
     labels:
       - traefik.enable=true
       # https configuration
@@ -67,4 +67,3 @@ services:
       - traefik.http.services.nextcloud.loadbalancer.server.port=80
       - traefik.docker.network=web
       - traefik.http.routers.nextcloud.tls=true
-    
