@@ -12,10 +12,12 @@ entryPoints:
   https:
     address: ":443"
 
-acme:
-  email: "nowebmaster@remigerme.xyz"
-  storage: "acme.json"
-  entryPoint: "https"
-  onHostRule: true
-  httpChallenge:
-    entryPoint: "http"
+certificatesResolvers:
+  myresolver:
+    acme:
+      email: "nowebmaster@remigerme.xyz"
+      storage: "/letsencrypt/acme.json"
+      entryPoint: "https"
+      onHostRule: true
+      httpChallenge:
+        entryPoint: "http"

@@ -15,6 +15,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /home/raimmy/remigerme.xyz/traefik.yml:/traefik.yml
-      - /home/raimmy/remigerme.xyz/acme.json:/acme.json
+      - /home/raimmy/remigerme.xyz/acme.json:/letsencrypt/acme.json
     networks:
       - web
