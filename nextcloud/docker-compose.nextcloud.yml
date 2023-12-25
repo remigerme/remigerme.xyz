@@ -16,6 +16,7 @@ services:
     restart: unless-stopped
     volumes:
       - mariadb-data-nextcloud:/var/lib/mysql
+      - /mnt/backup/mysql:/backup
     networks:
       - web
     environment:
@@ -46,11 +47,14 @@ services:
       - redis
     volumes:
       - nextcloud:/var/www/html
+      - /mnt/prod/data:/data
+      - /mnt/backup/data:/backup
       - ./apache2.conf:/etc/apache2/apache2.conf # just to specify servername
     networks:
       - web
     environment:
       - "NEXTCLOUD_TRUSTED_DOMAINS=nextcloud.remigerme.xyz"
+      - "NEXTCLOUD_DATA_DIR=/data"
       - "MYSQL_DATABASE=${MYSQL_DB}"
       - "MYSQL_USER=${MYSQL_USER}"
       - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
