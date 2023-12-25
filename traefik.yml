@@ -17,6 +17,5 @@ certificatesResolvers:
     acme:
       email: "nowebmaster@remigerme.xyz"
       storage: "/letsencrypt/acme.json"
-      onHostRule: true
       httpChallenge:
         entryPoint: "http"
