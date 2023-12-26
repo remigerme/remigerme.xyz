@@ -18,3 +18,4 @@ sudo docker compose -f docker-compose.nextcloud.yml up -d --build
 ```
 
 ## Backup
+A daily backup is done at 2AM.
