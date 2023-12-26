@@ -28,7 +28,11 @@ sudo chmod 750 /mnt/prod/data
 ### Backup disk
 ```
 sudo mkdir -p /mnt/backup
-TODO
+sudo mount UUID=uuid_backup /mnt/backup
+sudo mkdir -p /mnt/backup/data
+sudo chown -R www-data:sudo /mnt/backup/data
+sudo chmod 770 /mnt/backup/data
+TODO MYSQL
 ```
 
 ## Run in production
