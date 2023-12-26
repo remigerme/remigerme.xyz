@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export $(xargs < .env)
+export $(xargs < /home/raimmy/remigerme.xyz/nextcloud/.env)
 
 echo Entering maintenance mode
 docker exec -u www-data nextcloud php /var/www/html/occ maintenance:mode --on
