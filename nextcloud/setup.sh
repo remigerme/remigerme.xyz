@@ -26,7 +26,7 @@ mkdir -p /mnt/backup/mysql
 chown -R www-data:sudo /mnt/backup/mysql
 chmod 770 /mnt/backup/mysql
 
-if ! grep -q "UUID_BACKUP=" /nextcloud/.env; then
+if ! grep -q "UUID_BACKUP=" nextcloud/.env; then
     echo UUID_BACKUP=$uuid_backup >> nextcloud/.env
     echo Added backup disk to nextcloud/.env
 else
