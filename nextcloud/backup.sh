@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo Entering maintenance mode
 sudo docker exec -u www-data nextcloud php /var/www/html/occ maintenance:mode --on
 
