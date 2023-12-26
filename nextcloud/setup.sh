@@ -52,7 +52,7 @@ echo Configuring backup crontab : starting
 chmod +x nextcloud/backup.sh
 crontab -l > rootcron
 if ! grep -q "/home/raimmy/remigerme.xyz/nextcloud/backup.sh" rootcron; then
-    echo '* 2 * * * /home/raimmy/remigerme.xyz/nextcloud/backup.sh' >> rootcron
+    echo '* 2 * * * /home/raimmy/remigerme.xyz/nextcloud/backup.sh >> /var/log/nextcloud-backup.log 2>&1' >> rootcron
     echo Configuring backup crontab : done
 else
     echo Configuring backup crontab : already configured, check config 
@@ -61,7 +61,7 @@ fi
 echo Configuring disk check crontab : starting
 chmod +x nextcloud/disk.sh
 if ! grep -q "/home/raimmy/remigerme.xyz/nextcloud/disk.sh" rootcron; then
-    echo '*/15 * * * * /home/raimmy/remigerme.xyz/nextcloud/disk.sh' >> rootcron
+    echo '*/15 * * * * /home/raimmy/remigerme.xyz/nextcloud/disk.sh >> /var/log/nextcloud-disk-check.log 2>&1' >> rootcron
     echo Configuring disk check crontab : done
 else
     echo Configuring disk check crontab : already configured, check config
