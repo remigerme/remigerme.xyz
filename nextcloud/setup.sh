@@ -25,6 +25,7 @@ chmod 770 /mnt/backup/data
 mkdir -p /mnt/backup/mysql
 chown -R www-data:sudo /mnt/backup/mysql
 chmod 770 /mnt/backup/mysql
+umount /mnt/backup
 
 if ! grep -q "UUID_BACKUP=" nextcloud/.env; then
     echo UUID_BACKUP=$uuid_backup >> nextcloud/.env
@@ -33,5 +34,17 @@ else
     echo Backup disk already provided in nextcloud/.env, check config
 fi
 
+echo Configuring backup crontab : starting
 chmod +x nextcloud/backup.sh
+crontab -l > rootcron
+if ! grep -q "/home/raimmy/remigerme.xyz/nextcloud/backup.sh" rootcron; then
+    echo MAILTO="nowebmaster@remigerme.xyz" >> rootcron
+    echo * 2 * * * /home/raimmy/remigerme.xyz/nextcloud/backup.sh >> rootcron
+    crontab rootcron
+    echo Configuring backup crontab : done
+else
+    echo Configuring backup crontab : already configured, check config 
+fi
+rm rootcron
+
 echo Nextcloud setup : done
