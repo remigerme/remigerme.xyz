@@ -1,37 +1,13 @@
+# remigerme.xyz
+
 ## Installation
-Upload `.env` file to the `nextcloud` folder.
-
-Create network `web` :
+Upload `.env` file to the `nextcloud` folder. Then :
 ```
-sudo docker network create web
+chmod +x setup.sh && source setup.sh
 ```
-
-Set correct permissions to `acme.json` :
-```
-chmod 600 letsencrypt/acme.json
-```
-
-### Prod disk
-In `/etc/fstab` add :
-```
-UUID=here_uuid_prod /mnt/prod ext4 defaults 0 0
-```
-
-```
-sudo mkdir -p /mnt/prod
-sudo mount -a
-sudo mkdir -p /mnt/prod/data
-sudo chown -R www-data:sudo /mnt/prod/data
-sudo chmod 750 /mnt/prod/data
-``` 
 
 ### Backup disk
 ```
-sudo mkdir -p /mnt/backup
-sudo mount UUID=uuid_backup /mnt/backup
-sudo mkdir -p /mnt/backup/data
-sudo chown -R www-data:sudo /mnt/backup/data
-sudo chmod 770 /mnt/backup/data
 TODO MYSQL
 ```
 
