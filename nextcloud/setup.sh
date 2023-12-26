@@ -26,7 +26,12 @@ mkdir -p /mnt/backup/mysql
 chown -R www-data:sudo /mnt/backup/mysql
 chmod 770 /mnt/backup/mysql
 
-echo UUID_BACKUP=$uuid_backup >> nextcloud/.env
+if ! grep -q "UUID_BACKUP=" /nextcloud/.env; then
+    echo UUID_BACKUP=$uuid_backup >> nextcloud/.env
+    echo Added backup disk to nextcloud/.env
+else
+    echo Backup disk already provided in nextcloud/.env, check config
+fi
 
 chmod +x nextcloud/backup.sh
 echo Nextcloud setup : done
