@@ -5,7 +5,6 @@ Upload `.env` file to the `nextcloud` folder. Then :
 ```
 chmod +x setup.sh && sudo ./setup.sh
 ```
-Don't forget to edit emails in `traefik.yml` and crontab.
 
 ## Run in production
 Run traefik :

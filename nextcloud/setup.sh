@@ -38,7 +38,6 @@ echo Configuring backup crontab : starting
 chmod +x nextcloud/backup.sh
 crontab -l > rootcron
 if ! grep -q "/home/raimmy/remigerme.xyz/nextcloud/backup.sh" rootcron; then
-    echo MAILTO="nowebmaster@remigerme.xyz" >> rootcron
     echo '* 2 * * * /home/raimmy/remigerme.xyz/nextcloud/backup.sh' >> rootcron
     crontab rootcron
     echo Configuring backup crontab : done
