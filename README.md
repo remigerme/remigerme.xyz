@@ -19,3 +19,5 @@ sudo docker compose -f docker-compose.nextcloud.yml up -d --build
 
 ## Backup
 A daily backup is done at 2AM.
+
+Disks are checked every 15min. Disable cron task when doing maintenance.
