@@ -5,6 +5,10 @@ echo Nextcloud setup : starting
 read -p "UUID prod disk : " uuid_prod
 if ! grep -q "$uuid_prod" /etc/fstab; then
     echo UUID=$uuid_prod /mnt/prod ext4 defaults 0 0 >> /etc/fstab
+    echo Added disk to /etc/fstab
+else
+    echo Disk already in /etc/fstab, check config
+fi
 
 mkdir -p /mnt/prod
 mount -a
