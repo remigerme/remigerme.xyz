@@ -12,5 +12,17 @@ mkdir -p /mnt/prod/data
 chown -R www-data:sudo /mnt/prod/data
 chmod 750 /mnt/prod/data
 
+mkdir -p /mnt/backup
+read -p "UUID backup disk : " uuid_backup
+mount UUID=$uuid_backup /mnt/backup
+mkdir -p /mnt/backup/data
+chown -R www-data:sudo /mnt/backup/data
+chmod 770 /mnt/backup/data
+mkdir -p /mnt/backup/mysql
+chown -R www-data:sudo /mnt/backup/mysql
+chmod 770 /mnt/backup/mysql
+
+echo UUID_BACKUP=$uuid_backup >> nextcloud/.env
+
 chmod +x nextcloud/backup.sh
 echo Nextcloud setup : done
