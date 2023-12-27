@@ -1,0 +1,26 @@
+version: "3.7"
+
+networks:
+  web:
+    external: true
+
+services:  
+  nginx:
+    image: nginx:1.25
+    container_name: home-nginx
+    restart: unless-stopped
+    volumes:
+      - ./html:/usr/share/nginx/html
+      - ./remigerme.xyz.conf:/etc/nginx/conf.d/remigerme.xyz.conf
+    networks:
+      - web
+    labels:
+      - traefik.enable=true
+      # https configuration
+      - traefik.http.routers.entrypoints=https
+      - traefik.http.routers.nextcloud.rule=Host(`remigerme.xyz`)
+      # Connect the reverse proxy to the container port 80
+      - traefik.http.services.nextcloud.loadbalancer.server.port=80
+      - traefik.docker.network=web
+      - traefik.http.routers.nextcloud.tls=true
+      - traefik.http.routers.nextcloud.tls.certresolver=myresolver
