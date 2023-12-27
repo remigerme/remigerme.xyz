@@ -12,9 +12,14 @@ Run traefik :
 sudo docker compose -f docker-compose.traefik.yml up -d --build
 ```
 
+Run home static website :
+```
+sudo docker compose -f home/docker-compose.home.yml up -d --build
+```
+
 Run nextcloud :
 ```
-sudo docker compose -f docker-compose.nextcloud.yml up -d --build
+sudo docker compose -f nextcloud/docker-compose.nextcloud.yml up -d --build
 ```
 
 ## Backup
