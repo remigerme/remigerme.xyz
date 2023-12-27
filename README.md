@@ -7,6 +7,13 @@ chmod +x setup.sh && sudo ./setup.sh
 ```
 
 ## Run in production
+Run everything :
+```
+sudo ./start.sh
+```
+
+Or, if you're brave enough, you can run services one by one.
+
 Run traefik :
 ```
 sudo docker compose -f docker-compose.traefik.yml up -d --build
