@@ -18,7 +18,7 @@ services:
       - mariadb-data-nextcloud:/var/lib/mysql
       - /mnt/backup/mysql:/backup
     networks:
-      - web
+      - nextcloud
     environment:
       - "MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}"
       - "MYSQL_DATABASE=${MYSQL_DB}"
@@ -32,7 +32,7 @@ services:
     volumes:
       - redis-data-nextcloud:/data
     networks:
-      - web
+      - nextcloud
     command: redis-server --requirepass ${REDIS_PASSWORD}
 
   nextcloud:
@@ -52,6 +52,7 @@ services:
       - ./apache2.conf:/etc/apache2/apache2.conf # just to specify servername
     networks:
       - web
+      - nextcloud
     environment:
       - "NEXTCLOUD_TRUSTED_DOMAINS=nextcloud.remigerme.xyz"
       - "NEXTCLOUD_DATA_DIR=/data"

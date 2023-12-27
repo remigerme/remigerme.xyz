@@ -2,6 +2,8 @@
 
 echo Nextcloud setup : starting
 
+docker network inspect nextcloud >/dev/null 2>&1 || docker network create nextcloud
+
 read -p "UUID prod disk : " uuid_prod
 if ! grep -q "$uuid_prod" /etc/fstab; then
     echo UUID=$uuid_prod /mnt/prod ext4 defaults 0 0 >> /etc/fstab
