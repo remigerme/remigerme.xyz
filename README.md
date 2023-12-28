@@ -6,6 +6,12 @@ Upload `.env` file to the `nextcloud` folder. Then :
 chmod +x setup.sh && sudo ./setup.sh
 ```
 
+The first time you run the container (when the volume is created), you need to run :
+```
+sudo docker exec -u www-data -it nextcloud php occ config:system:set overwriteprotocol --value='https'
+```
+Else, you won't be able to connect via nextcloud clients (desktop or mobile).
+
 ## Run in production
 Run everything :
 ```
