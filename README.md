@@ -12,6 +12,11 @@ sudo docker exec -u www-data -it nextcloud php occ config:system:set overwritepr
 ```
 Else, you won't be able to connect via nextcloud clients (desktop or mobile).
 
+Then you might run :
+```
+sudo docker exec -u www-data -it nextcloud php occ config:system:set default_phone_region --value='FR'
+```
+
 ## Run in production
 Run everything :
 ```
