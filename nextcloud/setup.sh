@@ -54,7 +54,7 @@ echo Configuring backup crontab : starting
 chmod +x nextcloud/backup.sh
 crontab -l > rootcron
 if ! grep -q "/home/raimmy/remigerme.xyz/nextcloud/backup.sh" rootcron; then
-    echo '* 2 * * * /home/raimmy/remigerme.xyz/nextcloud/backup.sh >> /var/log/nextcloud-backup.log 2>&1' >> rootcron
+    echo '0 2 * * * /home/raimmy/remigerme.xyz/nextcloud/backup.sh >> /var/log/nextcloud-backup.log 2>&1' >> rootcron
     echo Configuring backup crontab : done
 else
     echo Configuring backup crontab : already configured, check config 
