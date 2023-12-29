@@ -49,4 +49,4 @@ From time to time, manually run :
 ```
 sudo rsync -Aau --delete /mnt/prod/data/ /mnt/backup/data/
 ```
-The delete file allows you to remove junk files from previous backups which don't exist anymore. Do not cron it as it might erase backup if prod disk fails.
+The delete flag allows you to remove junk files from previous backups which don't exist anymore. Do not cron it as it might erase backup if prod disk fails.
