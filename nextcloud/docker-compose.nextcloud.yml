@@ -68,15 +68,9 @@ services:
       - "REDIS_HOST_PASSWORD=${REDIS_PASSWORD}"
     labels:
       - traefik.enable=true
-      # https configuration
-      - traefik.http.routers.entrypoints=https
       - traefik.http.routers.nextcloud.rule=Host(`nextcloud.remigerme.xyz`)
-      # Connect the reverse proxy to the container port 80
-      - traefik.http.services.nextcloud.loadbalancer.server.port=80
-      - traefik.docker.network=web
+      # https configuration
       - traefik.http.routers.nextcloud.tls=true
       - traefik.http.routers.nextcloud.tls.certresolver=myresolver
-      - traefik.http.routers.nextcloud.middlewares=nextcloud_redirectregex
-      - traefik.http.middlewares.nextcloud_redirectregex.redirectregex.permanent=true
-      - traefik.http.middlewares.nextcloud_redirectregex.redirectregex.regex='https://(.*)/.well-known/(?:card|cal)dav'
-      - traefik.http.middlewares.nextcloud_redirectregex.redirectregex.replacement='https://$${1}/remote.php/dav'
+      # Connect the reverse proxy to the container port 80
+      - traefik.http.services.nextcloud.loadbalancer.server.port=80
