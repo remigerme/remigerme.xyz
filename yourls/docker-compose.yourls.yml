@@ -1,0 +1,51 @@
+version: "3.7"
+
+networks:
+  web:
+    external: true
+  yourls:
+    external: true
+
+volumes:
+  mariadb-yourls:
+
+services:
+  yourls:
+    image: yourls
+    container_name: yourls
+    restart: unless-stopped
+    networks:
+      - web
+      - yourls
+    depends_on:
+      - mariadb
+    environment:
+      - "YOURLS_SITE=https://url.remigerme.xyz"
+      - "YOURLS_USER=${YOURLS_USER}"
+      - "YOURLS_PASS=${YOURLS_PASSWORD}"
+      - "YOURLS_DB_HOST=mariadb"
+      - "YOURLS_DB_NAME=${MYSQL_DB}"
+      - "YOURLS_DB_USER=${MYSQL_USER}"
+      - "YOURLS_DB_PASS=${MYSQL_PASSWORD}"
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.yourls.rule=Host(`url.remigerme.xyz`)
+      # https configuration
+      - traefik.http.routers.yourls.tls=true
+      - traefik.http.routers.yourls.tls.certresolver=myresolver
+      # Connect the reverse proxy to the container port 80
+      - traefik.http.services.yourls.loadbalancer.server.port=80
+
+  mariadb:
+    image: mariadb:10.6
+    container_name: yourls-mariadb
+    restart: unless-stopped
+    networks:
+      - yourls
+    volumes:
+      - mariadb-yourls:/var/lib/mysql
+    environment:
+      - "MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}"
+      - "MYSQL_DATABASE=${MYSQL_DB}"
+      - "MYSQL_USER=${MYSQL_USER}"
+      - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
