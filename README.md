@@ -1,7 +1,7 @@
 # remigerme.xyz
 
 ## Installation
-Upload `.env` file to the `nextcloud` folder. Then :
+Upload `.env` files to the `nextcloud` and `yourls` folders. Then :
 ```
 chmod +x setup.sh && sudo ./setup.sh
 ```
@@ -12,7 +12,7 @@ Run everything :
 sudo ./start.sh
 ```
 
-## Backup
+## Nextcloud backup
 A daily backup is done at 2AM.
 
 Disks are checked every 15min. Disable cron task when doing maintenance.
@@ -25,3 +25,6 @@ The delete flag allows you to remove junk files from previous backups which don'
 
 ## Blog
 The blog is hosted by default Notion website service. I'm just using a Cloudflare as a (more or less) proxy pass (cf. Fruition) which allows me to use [blog.remigerme.xyz](https://blog.remigerme.xyz).
+
+## YOURLS
+[url.remigerme.xyz](https://url.remigerme.xyz) errors with 403 which is the intended behaviour. Check out `/admin` to manually install it the first time or manage short links.
