@@ -7,3 +7,6 @@ chmod 600 letsencrypt/acme.json
 
 chmod +x nextcloud/setup.sh
 source nextcloud/setup.sh
+
+chmod +x yourls/setup.sh
+source yourls/setup.sh
