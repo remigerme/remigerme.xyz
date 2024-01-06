@@ -37,6 +37,8 @@ fi
 mkdir -p /mnt/prod
 mkdir -p /mnt/backup
 
+systemctl daemon-reload
+
 mount -a
 
 mkdir -p /mnt/prod/data
