@@ -49,7 +49,7 @@ services:
       - redis
     volumes:
       - nextcloud:/var/www/html
-      - /mnt/prod/data_temp:/data
+      - /mnt/prod/data:/data
       - /mnt/backup/data:/backup
       - ./apache2.conf:/etc/apache2/apache2.conf # just to specify servername
     networks:
