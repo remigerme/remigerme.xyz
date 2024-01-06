@@ -56,16 +56,16 @@ services:
       - web
       - nextcloud
     environment:
-      - "NEXTCLOUD_TRUSTED_DOMAINS=nextcloud.remigerme.xyz"
-      - "NEXTCLOUD_DATA_DIR=/data"
+      - "MYSQL_HOST=mariadb"
       - "MYSQL_DATABASE=${MYSQL_DB}"
       - "MYSQL_USER=${MYSQL_USER}"
       - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
-      - "MYSQL_HOST=mariadb"
-      - "NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER}"
-      - "NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}"
       - "REDIS_HOST=redis"
       - "REDIS_HOST_PASSWORD=${REDIS_PASSWORD}"
+      - "NEXTCLOUD_ADMIN_USER=${NEXTCLOUD_ADMIN_USER}"
+      - "NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}"
+      - "NEXTCLOUD_TRUSTED_DOMAINS=nextcloud.remigerme.xyz"
+      - "NEXTCLOUD_DATA_DIR=/data"
     labels:
       - traefik.enable=true
       - traefik.http.routers.nextcloud.rule=Host(`nextcloud.remigerme.xyz`)
