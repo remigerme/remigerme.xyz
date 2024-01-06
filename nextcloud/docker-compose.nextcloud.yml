@@ -74,7 +74,7 @@ services:
       - traefik.http.routers.nextcloud.tls.certresolver=myresolver
       # Connect the reverse proxy to the container port 80
       - traefik.http.services.nextcloud.loadbalancer.server.port=80
-  
+
   collabora:
     image: collabora/code
     container_name: collabora
@@ -90,7 +90,7 @@ services:
       - "DONT_GEN_SSL_CERT=true"
       - "server_name=${COLLABORA_SERVER_NAME}"
       - "dictionnaries=en_US,fr_FR"
-      - "extra_params=--o:ssl.enable=false"
+      - "extra_params=--o:ssl.enable=false --o:ssl.termination=true"
     labels:
       - traefik.enable=true
       - traefik.http.routers.collabora.rule=Host(`office.remigerme.xyz`)
