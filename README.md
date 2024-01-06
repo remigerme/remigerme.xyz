@@ -23,6 +23,9 @@ sudo rsync -Aau --delete /mnt/prod/data/ /mnt/backup/data/
 ```
 The delete flag allows you to remove junk files from previous backups which don't exist anymore. Do not cron it as it might erase backup if prod disk fails.
 
+## Collabora server
+It runs on `office.remigerme.xyz`. SSL is disabled as Traefik already handles it as a reverse proxy. Still need to configure the WOPI list though.
+
 ## Blog
 The blog is hosted by default Notion website service. I'm just using a Cloudflare as a (more or less) proxy pass (cf. Fruition) which allows me to use [blog.remigerme.xyz](https://blog.remigerme.xyz).
 
