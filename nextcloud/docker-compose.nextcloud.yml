@@ -89,7 +89,7 @@ services:
       - "password=${COLLABORA_PASSWORD}"
       - "DONT_GEN_SSL_CERT=true"
       - "server_name=${COLLABORA_SERVER_NAME}"
-      - "dictionnaries=en_US fr_FR"
+      - "dictionnaries=en_US,fr_FR"
       - "extra_params=--o:ssl.enable=false"
     labels:
       - traefik.enable=true
