@@ -36,6 +36,10 @@ sudo rsync -Aau --delete /mnt/prod/data/ /mnt/backup/data/
 
 The delete flag allows you to remove junk files from previous backups which don't exist anymore. Do not cron it as it might erase backup if prod disk fails.
 
+## Nextcloud update
+
+See [this guide](https://github.com/nextcloud/docker?tab=readme-ov-file#update-to-a-newer-version), beware : upgrade major versions one by one.
+
 ## Collabora server
 
 It runs on `office.remigerme.xyz`. SSL is disabled as Traefik already handles it as a reverse proxy. Still need to configure the WOPI list though.
