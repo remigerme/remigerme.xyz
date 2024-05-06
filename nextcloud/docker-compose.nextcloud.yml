@@ -24,6 +24,7 @@ services:
       - "MYSQL_DATABASE=${MYSQL_DB}"
       - "MYSQL_USER=${MYSQL_USER}"
       - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
+      - "MARIADB_AUTO_UPGRADE=1"
 
   redis:
     image: redis:7.2
