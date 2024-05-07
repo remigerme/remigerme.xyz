@@ -51,3 +51,7 @@ The blog is hosted by default Notion website service. I'm just using a Cloudflar
 ## YOURLS
 
 [url.remigerme.xyz](https://url.remigerme.xyz) errors with 403 which is the intended behaviour. Check out `/admin` to manually install it the first time or manage short links.
+
+## Frequent problems
+
+If HTTPS certificates are self-signed, make sure to run `chmod 600 letsencrypt/acme.json` (happens frequently after a `git pull`).
