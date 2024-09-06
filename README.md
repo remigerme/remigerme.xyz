@@ -2,6 +2,12 @@
 
 ## Installation
 
+Clone recursively this project (to also include `quartz` instance) :
+
+```shell
+git clone --recurse-submodules git@github.com:remigerme/remigerme.xyz.git
+```
+
 Upload `.env` files to the `nextcloud` and `yourls` folders. Then :
 
 ```shell
@@ -46,7 +52,10 @@ It runs on `office.remigerme.xyz`. SSL is disabled as Traefik already handles it
 
 ## Blog
 
-The blog is hosted by default Notion website service. I'm just using a Cloudflare as a (more or less) proxy pass (cf. Fruition) which allows me to use [blog.remigerme.xyz](https://blog.remigerme.xyz).
+The blog is written with Obsidian, synced on the Nextcloud instance using [Remotely Save](https://github.com/remotely-save/remotely-save), and generated and served by [Quartz](https://github.com/jackyzha0/quartz).
+
+> [!NOTE]
+> The blog used to be written on, and served by, Notion. Even if Notion honestly feels great, I prefer having cleaner / human-readable URL slugs.
 
 ## YOURLS
 
