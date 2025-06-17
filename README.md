@@ -52,7 +52,7 @@ It runs on `office.remigerme.xyz`. SSL is disabled as Traefik already handles it
 
 ## Blog
 
-The blog is written with Obsidian, synced on the Nextcloud instance using [Remotely Save](https://github.com/remotely-save/remotely-save), and generated and served by [Quartz](https://github.com/jackyzha0/quartz).
+The blog is written with Obsidian, and generated and served by [Quartz](https://github.com/jackyzha0/quartz). See the [dedicated repo](https://github.com/remigerme/my-quartz).
 
 > [!NOTE]
 > The blog used to be written on, and served by, Notion. Even if Notion honestly feels great, I prefer having cleaner / human-readable URL slugs.
