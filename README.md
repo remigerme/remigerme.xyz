@@ -2,10 +2,10 @@
 
 ## Installation
 
-Clone recursively this project (to also include `quartz` instance) :
+Simply clone this project (edit: no more submodules for `quartz`).
 
 ```shell
-git clone --recurse-submodules git@github.com:remigerme/remigerme.xyz.git
+git clone git@github.com:remigerme/remigerme.xyz.git
 ```
 
 Upload `.env` files to the `nextcloud` and `yourls` folders. Then :
@@ -60,6 +60,10 @@ The blog is written with Obsidian, and generated and served by [Quartz](https://
 ## YOURLS
 
 [url.remigerme.xyz](https://url.remigerme.xyz) errors with 403 which is the intended behaviour. Check out `/admin` to manually install it the first time or manage short links.
+
+## Homepage
+
+Thanks to [Vereis](https://github.com/Vereis) for the CSS theme. As of July 2025, the [original repo](https://github.com/Vereis/generic.css) is no longer available.
 
 ## Frequent problems
 
