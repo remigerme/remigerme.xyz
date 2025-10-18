@@ -65,6 +65,9 @@ The blog is written with Obsidian, and generated and served by [Quartz](https://
 
 Thanks to [Vereis](https://github.com/Vereis) for the CSS theme. As of July 2025, the [original repo](https://github.com/Vereis/generic.css) is no longer available.
 
+> [!NOTE]
+> The homepage was moved to be hosted using github pages, a more reliable host provider than my personal infra.
+
 ## Frequent problems
 
 If HTTPS certificates are self-signed, make sure to run `chmod 600 letsencrypt/acme.json` (happens frequently after a `git pull`).
