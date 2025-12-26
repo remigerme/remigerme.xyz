@@ -37,7 +37,7 @@ services:
     command: redis-server --requirepass ${REDIS_PASSWORD}
 
   nextcloud:
-    image: nextcloud:28
+    image: nextcloud:28.0.5
     container_name: nextcloud
     restart: unless-stopped
     depends_on:
